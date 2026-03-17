@@ -1,0 +1,87 @@
+dataset
+
+1,Anitha,20,85
+2,Ravi,21,72
+3,Sneha,20,90
+4,Kiran,22,65
+5,Meera,21,88
+
+column names -> id, name, age , marks
+
+
+PIG QUERIES
+
+1. Load Dataset
+students = LOAD 'students.csv' USING PigStorage(',')
+AS (id:int, name:chararray, age:int, marks:int);
+
+#Loads the students.csv file into Pig and defines column names and data types.
+
+
+2. Display Data
+DUMP students;
+
+#Displays all student records on the screen.
+
+
+3. Filter Students with marks > 80
+high_marks = FILTER students BY marks > 80;
+DUMP high_marks;
+
+#This query selects only those students whose marks are greater than 80.
+The filtered result is stored in high_marks and then displayed.
+
+
+4. Group Students by Age
+grp = GROUP students BY age;
+
+#This groups all student records based on their age values.
+Students having the same age are placed in the same group.
+
+
+5. Count Students in each Age Group
+result = FOREACH grp GENERATE group AS age, COUNT(students) AS total_students;
+DUMP result;
+
+#This calculates how many students are present in each age group.
+COUNT(students) counts number of records inside each group.
+
+
+
+
+HIVE QUERIES
+
+1. Create Table
+CREATE TABLE students(id INT,name STRING,age INT,marks INT)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ',';
+
+#This query creates a Hive table named students with four columns.
+It also specifies that the data fields in the file are separated using commas.
+
+
+2. Load Data
+LOAD DATA LOCAL INPATH 'students.csv'
+INTO TABLE students;
+
+#This command loads the dataset from the local system into the Hive table.
+
+
+3. Display Table Data
+SELECT * FROM students;
+
+#This query retrieves and displays all records from the students table.
+
+
+4. Students with marks > 80
+SELECT * FROM students
+WHERE marks > 80;
+
+#This query selects only those students who have scored more than 80 marks.
+
+5. Count Students in each Age Group
+SELECT age, COUNT(*) AS total_students
+FROM students
+GROUP BY age;
+
+#This groups students based on age and counts how many students belong to each age category.
