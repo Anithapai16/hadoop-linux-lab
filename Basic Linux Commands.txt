@@ -1,0 +1,17 @@
+Basic Linux Commands 
+
+1.	ls: LIST THE NAMES OF FILES
+2.	man ls: GIVES THE LIST OF MANUALS
+3.	cat: DISPLAYS A TEXT FILE
+4.	rm: DELETES A FILE
+5.	mv: CHANGES THE NAME OF A FILE
+6.	head: DISPLAYS THE BEGINNING OF A FILE
+7.	tail: DISPLAYS THE END OF A FILE
+8.	sort: DISPLAYS A FILE IN ORDER
+9.	uniq: REMOVES DUPLICATE LINES FROM A FILE
+10.	diff: COMPARES TWO FILES
+11.	Pwd: The directory you are associated with is called the working 	directory or current directory. 
+12.	mkdir: CREATES A DIRECTORY
+13.	cd: CHANGES TO ANOTHER WORKING DIRECTORY
+14.	rmdir: DELETES A DIRECTORY
+15. 	touch: tocreate a file
